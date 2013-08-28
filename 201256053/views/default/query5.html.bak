@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h1> And here are some good songs.. </h1>
+<ol>
+{{for row in rows:}}
+<li><u>{{=row['Songs.Name']}}</u> filmed on {{=row['Artists.Artist']}} rated {{=row['Rating.Rating']}} stars!</li>
+{{pass}}
+</ol>

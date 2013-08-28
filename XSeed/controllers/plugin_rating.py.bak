@@ -1,0 +1,42 @@
+@auth.requires_login()
+def rate():
+    user_id=auth.user.id
+    N=5
+    pm = db.plugin_rating_master
+    pa = db.plugin_rating_aux
+    tablename = request.vars.tablename
+    record_id = request.vars.record_id
+    rating = int(request.vars.rating or 0) #### TODO: check rate in range
+    #if not tablename in db.tables or \
+    #   tablename.startswith('plugin') or \
+    #   tablename.startswith('auth') or \
+    #   not db[tablename][record_id]:
+    #      raise HTTP(400)
+    master = db(pm.tablename==tablename)(pm.record_id==record_id).select().first()
+    if master:
+        master_rating, master_counter = master.rating, master.counter
+    else:
+        master_rating, master_counter = 0, 0
+        master=pm.insert(tablename=tablename,record_id=record_id,rating=master_rating,counter=master_counter)
+    record = db(pa.master==master)(pa.created_by==user_id).select().first()
+    if record:
+        user_rating = record.rating
+    else:
+        user_rating = 0
+    print request.vars
+    if rating:
+        if not record:
+           record = db.plugin_rating_aux.insert(master=master,rating=rating,created_by=user_id)
+           master_rating = (master_rating*master_counter + rating)/(master_counter+1)
+           master_counter = master_counter + 1
+        else:
+           master_counter = master_counter
+           master_rating = (master_rating*master_counter - record.rating + rating)/master_counter
+           record.update_record(rating=rating)
+        master.update_record(rating=master_rating, counter=master_counter)
+        user_rating = rating
+    links = [INPUT(_type='submit',_name='rating',_value=i) for i in range(1,N+1)]    
+    return FORM('you:%.1f'%user_rating,'/mean:%.1f'%master_rating,'/votes:',master_counter,'/vote:',
+             INPUT(_type='hidden',_name='tablename',_value=tablename), 
+             INPUT(_type='hidden',_name='record_id',_value=record_id),      
+             _action=URL(request.application,'plugin_rating','rate'),*links).xml()

@@ -1,0 +1,4 @@
+{{extend 'layout.html'}}
+<h1>Search works of Artist: </h1>
+{{=records}}
+<h4> Please check the output from controller. I'm printing all required data there. (I can't return as form has to be returned first) </h4>

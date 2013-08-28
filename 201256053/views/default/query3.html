@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h1> Balu in Movie Shankarabharanam:  </h1>
+<ol>
+{{for row in rows:}}
+<li>{{=row['Songs.Singer']}} sung {{=rows['Songs.Name']}}</li>
+{{pass}}
+</ol>

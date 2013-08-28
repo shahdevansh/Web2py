@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+<h1>The contributors on XSeed are</h1>
+<span style='text-decoration:underline text-weight:bold'> Search :
+{{=form}}
+{{for resul in result:}}
+{{=resul['first_name']}}
+<br/>
+{{pass}}
+<hr>
+{{for row in rows:}}
+{{=row['first_name']}}
+<br/>
+{{pass}}

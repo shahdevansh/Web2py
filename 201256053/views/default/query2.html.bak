@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h1>Balu Sang: </h1>
+<ol>
+{{for row in r:}}
+<li>{{=row.Songs.Name}}</li>
+{{pass}}
+</ol>

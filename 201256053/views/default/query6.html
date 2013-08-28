@@ -1,0 +1,8 @@
+{{extend 'layout.html'}}
+<h1> This artist did : </h1>
+<ol>
+{{for i in records:}}
+<li> {{=i['Name']}} </li>
+{{pass}}
+</ol>
+

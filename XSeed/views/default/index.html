@@ -1,0 +1,28 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,True}}
+{{extend 'layout.html'}}
+
+{{if 'message' in globals():}}
+<h3>{{=message}}</h3>
+
+<h3>{{=T('A platform to INNOVATE, BUILD and SHARE!')}}</h3>
+<h4>{{=T('By the best in India')}}</h4>
+<h5>{{=T('Our advantages include:')}}</h5>
+
+ <ul>
+  <li>{{=T('Available platform for your work to registered prestigious Institutions and Organizations.')}}</li>
+  <li>{{=T('Expert hints and tips to make yours the best project.')}} </li>
+  <li>{{=T('Get "HITS" and show off the awesomeness of your project.')}}</li>
+  <li>{{=T('Networking opportunities with the best Institutions and Organizations')}}</li>
+ </ul>
+<h3>
+BOUQUETS AND BRICKBATS
+</h3>
+{{=form}}
+<img src="itproject/views/india.jpeg"/> 
+ 
+ 
+ 
+   
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}

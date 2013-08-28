@@ -1,0 +1,12 @@
+{{extend 'layout.html'}}
+<h1>Details of the Project :</h1>
+<br>
+<hr>
+{{for row in rows:}}
+Name : {{=row['Name']}} 
+Course : {{=row['Course']}}
+Desciption : {{=row['Description']}}
+Area : {{=row['Area']}}
+Download : {{=row['ZipFile']}}
+<br>
+{{pass}}
