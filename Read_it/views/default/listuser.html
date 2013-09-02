@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h1> User list: </h1>
+<ol>
+{{for i in users:}}
+<li>{{=i['first_name']}} {{=i['last_name']}} </li> <a href="/Read_it/default/removeuser/{{=i['id']}}"  value=Delete /> Delete  </li> 
+{{pass}}
+</ol>

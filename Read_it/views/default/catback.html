@@ -1,0 +1,56 @@
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+$(function() {
+	$("li").click(function(e) {
+	    e.preventDefault();
+	    $("li").removeClass("selected");
+	    $(this).addClass("selected");
+	    var page = $(this).attr('href').split(/\?/)[1];
+	            $.ajax({
+		                type: 'POST',
+				            url: '/path-to-service',
+					                data: page,
+	    });
+	});
+</script>
+</head>
+{{extend 'layout.html'}}
+<ul class=tabrow>
+<li><a href="{{=URL('listall')}}"> ALL </li></a>
+{{for i in cate:}}
+<li><a href="{{=URL('list_cat')}}/{{=i['id']}}"> {{=i['Name']}} </a> </li>
+{{pass}}
+</ul>
+<h2> Selected  News: </h2>
+<hr/>
+<ol>
+{{for i in x:}}
+<li>
+<a href={{=i['URL']}}>	{{=i['Heading']}} </a>
+<br />
+<br />
+{{if i['Multimedia'] is not None: }}
+<iframe width="420" height="315" src="{{=i['Multimedia']}}" frameborder="0" allowfullscreen></iframe>
+<!--<embed
+width="420" height="345"
+src={{=i['Multimedia']}}
+type="application/x-shockwave-flash">
+</embed>-->
+{{pass}}
+<br/>
+{{if auth.user_id == i['User']:}}
+	<a href="{{=URL('update')}}/{{=i['id']}}" value="Update"> Update </a>
+	<a href="{{=URL('delete')}}/{{=i['id']}}" value="Delete"> Delete </a>
+<a href="{{=URL('comments')}}/{{=i['id']}}" value="DisLike"> Comment </a>
+{{else:}}
+	<a href="{{=URL('points')}}/{{=i['id']}}/5"> Like
+	</a><br/>
+	<a href="/Read_it/default/points/{{=i['id']}}/-3"> DisLike </a><br/>
+<a href="{{=URL('comments')}}/{{=i['id']}}" value="DisLike"> Comment
+	</a>
+	{{pass}}
+</li>
+<br/>
+{{pass}}
+</ol>

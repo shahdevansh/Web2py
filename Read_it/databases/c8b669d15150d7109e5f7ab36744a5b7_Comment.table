@@ -1,0 +1,63 @@
+(dp1
+S'itemid'
+p2
+(dp3
+S'type'
+p4
+S'reference Item'
+p5
+sS'sortable'
+p6
+I2
+sS'sql'
+p7
+S'INTEGER REFERENCES Item(id) ON DELETE CASCADE'
+p8
+ssS'comment'
+p9
+(dp10
+g4
+S'text'
+p11
+sg6
+I4
+sg7
+S'TEXT'
+p12
+ssS'date'
+p13
+(dp14
+S'sortable'
+p15
+I5
+sS'type'
+p16
+S'date'
+p17
+sS'sql'
+p18
+S'DATE'
+p19
+ssS'id'
+p20
+(dp21
+g4
+S'id'
+p22
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p23
+ssS'authid'
+p24
+(dp25
+g4
+S'reference auth_user'
+p26
+sg6
+I3
+sg7
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p27
+ss.

@@ -1,0 +1,320 @@
+{{extend 'layout.html'}}
+<!DOCTYPE HTML>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width">
+<script src="//use.typekit.net/hsn1jks.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+<link rel="stylesheet" href="http://chriscoyier.net/wp-content/themes/ChrisCoyierTheme5/style.css">
+
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://chriscoyier.net/feed/" />
+
+
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.4.11 - http://yoast.com/wordpress/seo/ -->
+<title>Your News</title>
+<link rel="canonical" href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/" />
+<meta property='og:locale' content='en_US'/>
+<meta property='og:type' content='article'/>
+<meta property='og:title' content='Meatloaf of the Gods - Chris Coyier'/>
+<meta property='og:description' content='Apologies to the Blue Plate Diner in Madison, Wisconsin. I love your meatloaf. I bought your cookbook to learn how to make it. I have done so many times. It is amazing. Now between my dog chewing on it and the cookbook getting wet, the book is pretty trashed. I am going to blog this [&hellip;]'/>
+<meta property='og:url' content='http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/'/>
+<meta property='og:site_name' content='Chris Coyier'/>
+<meta property='og:image' content='http://farm7.staticflickr.com/6032/6354418983_43ba97b78e_z.jpg'/>
+<meta property='og:image' content='http://farm7.staticflickr.com/6115/6354419399_affcf8e00b_z.jpg'/>
+<meta property='og:image' content='http://farm7.staticflickr.com/6034/6354419813_40d9b88e7e_z.jpg'/>
+<meta property='og:image' content='http://farm7.staticflickr.com/6213/6354420213_e2098cb643_z.jpg'/>
+<meta property='og:image' content='http://farm7.staticflickr.com/6044/6354420593_7eb902e458_z.jpg'/>
+<meta property='og:image' content='http://farm7.staticflickr.com/6036/6354421021_d14bde03d3_z.jpg'/>
+<meta property='og:image' content='http://farm7.staticflickr.com/6047/6354421421_92259b8bda_z.jpg'/>
+<!-- / Yoast WordPress SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="Chris Coyier &raquo; Meatloaf of the Gods Comments Feed" href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/feed/" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js?ver=3.6'></script>
+<link rel='shortlink' href='http://chriscoyier.net/?p=3019' />
+<!-- Better Art Direction Styles -->
+<link href='http://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
+<style>
+.ingredients {
+    font-family: 'Covered By Your Grace', cursive;
+background: #ffeec1;
+padding: 50px;
+	 font-size: 18px;
+color: #333;
+       -webkit-transform: rotate(-2deg);
+       -moz-transform: rotate(-2deg);
+       -ms-transform: rotate(-2deg);
+       -o-transform: rotate(-2deg);
+overflow: hidden;
+margin: 0 0 50px 0;
+}
+.ing-first, .ing-second {
+width: 49%;
+}
+.ing-first {
+float: left;
+}
+.ing-second {
+float: right;
+}
+.ingredients h2 { border-bottom: 2px solid black; }
+
+.steps {
+    list-style: none;
+    counter-reset: li;
+}
+.steps li {
+    counter-increment: step;
+position: relative; 
+clear: both;
+}
+.steps li:before {
+content: counter(step, upper-roman);
+	 font-size: 40px;
+background: rgba(255,132,0,0.7);
+color: white;
+position: absolute;
+top: 0;
+left: 0;
+width: 100px;
+height: 100px;
+	line-height: 100px;
+	text-align: center;
+}
+.steps li > div {
+margin: 0 0 100px 0;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<div class="main-content">
+<article class="post-3019 post type-post status-publish format-standard hentry category-uncategorized color3 module" id="post-3019">
+<h1>Your News @ {{=datetime.datetime.now().date()}}</h1>
+<hr/>
+<ol class="steps">
+{{for i in x:}}
+<li>
+<h3> {{=i['Heading']}} </h3>
+<br/>
+<iframe class="youtube-player" type="text/html" width="400" height="300" src={{=i['Multimedia']}} allowfullscreen frameborder="0">
+</iframe>
+<div> {{=i['Content']}}</div>
+</li>
+{{pass}}
+</ol>
+<p><br style="clear: both;"></p>
+</article>
+<h3>Comments</h3>
+<ol class="commentlist">
+<li class="comment even thread-even depth-1" id="comment-10408">
+<div id="div-comment-10408" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://0.gravatar.com/avatar/e8a949456ce845bb8ba23540b1c2bd52?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Kathy</cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10408">
+11/28/2011 at 2:00 am</a>		</div>
+
+<p>Is that about a half cup of red onion in the first picture?</p>
+<p>Can&#8217;t wait to make this, looks so good :-)</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10425">
+<div id="div-comment-10425" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://1.gravatar.com/avatar/72e0f0af006af35a1d9e6cc0eb341982?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Kristof</cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10425">
+11/29/2011 at 3:41 am</a>		</div>
+
+<p>This is by far the most awesome tutorial you have ever written!</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-10426">
+<div id="div-comment-10426" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://0.gravatar.com/avatar/2aeaacaccc548f9f579d71a6e2521ece?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Kevin Vance</cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10426">
+11/29/2011 at 7:00 am</a>		</div>
+
+<p>You know, I&#8217;ve never been a meat loaf kind of guy, but maybe it&#8217;s because I never had the right meat loaf.  I&#8217;ll give it a shot, maybe.  These photos very well may make me reconsider.</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10453">
+<div id="div-comment-10453" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://0.gravatar.com/avatar/641843a7f1f23c0c6d431b2bfd753d7f?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn"><a href='http://www.ianfarb.com' rel='external nofollow' class='url'>Ian</a></cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10453">
+11/30/2011 at 7:22 pm</a>		</div>
+
+<p>Awesome. Definitely going to give this a try. Thanks for sharing.</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-10462">
+<div id="div-comment-10462" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://0.gravatar.com/avatar/865b44bc9964ea3028dc1d3b72a1d353?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Chris</cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10462">
+12/01/2011 at 8:56 am</a>		</div>
+
+<p>Was wondering about the onion myself, is that something extra you add?</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-chriscoyier bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-10473">
+<div id="div-comment-10473" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://0.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn"><a href='http://css-tricks.com' rel='external nofollow' class='url'>Chris Coyier</a></cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10473">
+12/01/2011 at 9:18 pm</a>		</div>
+
+<p>Onion is part of original recipe, looks like I just forgot to add it. Will add now.</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-10563">
+<div id="div-comment-10563" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://1.gravatar.com/avatar/915f8d928a4344127649ba6d126d7227?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn"><a href='http://cmsnetsol.net' rel='external nofollow' class='url'>Craig</a></cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10563">
+12/05/2011 at 7:15 pm</a>		</div>
+
+<p>I am a meatloaf fanatic so I will have to give it a try</p>
+<p>Killer ordered list too.</p>
+<p>Thanks!</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10608">
+<div id="div-comment-10608" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://1.gravatar.com/avatar/7b50b60c5bd8aa5230f9a7fe117a1e74?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Colm</cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10608">
+12/07/2011 at 5:26 pm</a>		</div>
+
+<p>Hi, recipe looks really nice and pardon my ignorance, but as I&#8217;m Irish, I&#8217;m not familiar with half and half, and after looking it up on wikipedia I&#8217;m even more confused :)<br />
+<a href="http://en.wikipedia.org/wiki/Half_and_half" rel="nofollow">http://en.wikipedia.org/wiki/Half_and_half</a></p>
+<p>Any advice as to that your version is?</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-10656">
+<div id="div-comment-10656" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://1.gravatar.com/avatar/913c6b91a7d370a6a72de90c7ac93f03?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn"><a href='http://jonathandejong.se' rel='external nofollow' class='url'>jonathan</a></cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10656">
+12/11/2011 at 2:15 am</a>		</div>
+
+<p>I&#8217;m a swede so I can only speak from my own intrepetation of half and half and I&#8217;d say it&#8217;s like a less thick cream? Probably works with any kind of cream for cooking :)</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10677">
+<div id="div-comment-10677" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://1.gravatar.com/avatar/34f18d7895f390f5eabb442b6e623be5?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn"><a href='http://zomigi.com' rel='external nofollow' class='url'>Zoe Gillenwater</a></cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10677">
+12/12/2011 at 8:17 pm</a>		</div>
+
+<p>Looks awesome, Chris!</p>
+<p>Colm, half and half is just half cream, half milk. I&#8217;m sure you could substitute just regular milk in this recipe and it would be fine; it&#8217;s not like this is a baked good or sauce or something. Or just go ahead and substitute cream if you want your meatloaf more decadent. ;-)</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-10691">
+<div id="div-comment-10691" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://0.gravatar.com/avatar/4aaecfa00ae763e292412b549ea9d9bc?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Shawn</cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10691">
+12/13/2011 at 7:41 am</a>		</div>
+
+<p>This post made me hungry</p>
+<p>*drool</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-10810">
+<div id="div-comment-10810" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://0.gravatar.com/avatar/2c6d1e1472ff623f256af94541f2c76c?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Ken</cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10810">
+12/21/2011 at 12:32 am</a>		</div>
+
+<p>I forwarded this post to my wife about a month ago; she surprised me this evening, when I got home the house smelled wonderful and this recipe was printed out on the counter! It was AWESOME dude, thanks for sharing! Yum.</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-10984">
+<div id="div-comment-10984" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://1.gravatar.com/avatar/7b50b60c5bd8aa5230f9a7fe117a1e74?s=64&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn">Colm</cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-10984">
+01/13/2012 at 10:38 pm</a>		</div>
+
+<p>Thanks Zoe &amp; Jonathan, I tried it out and it turned out really well!</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-11165">
+<div id="div-comment-11165" class="comment-body">
+<div class="comment-author vcard">
+<img alt='' src='http://0.gravatar.com/avatar/8a22cd300cad9879bd2a61f101adaa95?s=64&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&amp;r=R' class='avatar avatar-64 photo' height='64' width='64' />			<cite class="fn"><a href='http://freshma.de' rel='external nofollow' class='url'>Jack Keller</a></cite> <span class="says">says:</span>		</div>
+
+<div class="comment-meta commentmetadata"><a href="http://chriscoyier.net/2011/11/27/meatloaf-of-the-gods/#comment-11165">
+02/01/2012 at 6:11 pm</a>		</div>
+
+<p>OMG, this is delicious! I bookmarked this recipe last month and wish I hadn&#8217;t waited till last night to cook it up. I&#8217;m enjoying leftovers right now!</p>
+<p>Great recipe, worth the effort!</p>
+
+<div class="reply">
+</div>
+</div>
+</li><!-- #comment-## -->
+</ol>
+</div>
+<script src='/wp-content/themes/ChrisCoyierTheme5/js/global-ck.js'></script>
+</body>
+</html>

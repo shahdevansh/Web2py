@@ -1,0 +1,63 @@
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+$(function() {
+	$("li").click(function(e) {
+	    e.preventDefault();
+	    $("li").removeClass("selected");
+	    $(this).addClass("selected");
+	    var page = $(this).attr('href').split(/\?/)[1];
+	            $.ajax({
+		                type: 'POST',
+				            url: '/path-to-service',
+					                data: page,
+	    });
+	});
+</script>
+</head>
+{{extend 'layout.html'}}
+<ul class=tabrow>
+<li><a href="{{=URL('listall')}}"> ALL </li></a>
+{{for i in cate:}}
+<li><a href="{{=URL('list_cat')}}/{{=i['id']}}"> {{=i['Name']}} </a> </li>
+{{pass}}
+</ul>
+<h2> Your News: </h2>
+<hr/>
+<ol>
+<br/>
+<div style="float:left; width:75%;">
+{{for i in x:}}
+<li>
+<frameset>
+<h2><a href={{=i['Item.URL']}}>	{{=i['Item.Heading']}} </a></h2>
+<br />
+{{if i['Item.Multimedia'] is not None: }}
+<iframe width="420" height="315" src="{{=i['Item.Multimedia']}}" frameborder="0" allowfullscreen></iframe>
+{{pass}}
+{{pass}}
+</div>
+<div style="float:left; width:25%;">
+{{for i in x:}}
+<br/><br/><br/>
+<p><b> {{=i['Item.Rating']}} </b>points</p>
+<pre> Posted by :
+<b>{{=i['auth_user.first_name']}} {{=i['auth_user.last_name']}} </b>
+at <b>{{=i['Item.Time']}}</b>
+Tagged: <a href="{{=URL('list_cat')}}/{{=i['Category.id']}}"> {{=i['Category.Name']}}</a><p>
+</pre>
+{{if auth.user_id == i['Item.User'] or auth.user_id == 1: }}
+<a href="{{=URL('update')}}/{{=i['Item.id']}}" value="Update"> Update </a> <br/>
+<a href="{{=URL('delete')}}/{{=i['Item.id']}}" value="Update"> Delete </a> <br/>
+<a href="{{=URL('comments')}}/{{=i['Item.id']}}" value="Update"> Comment </a> <br/>
+{{else:}}
+<a href="{{=URL('points')}}/{{=i['Item.id']}}/5" value="Update"> Like </a> <br/>
+<a href="{{=URL('points')}}/{{=i['Item.id']}}/-3" value="Update"> Dislike </a> <br/>
+<a href="{{=URL('comments')}}/{{=i['Item.id']}}" value="Update"> Comment </a> <br/>
+{{pass}}
+</li>
+<br/>
+</frameset>
+{{pass}}
+</ol>
+</div>

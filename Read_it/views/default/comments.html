@@ -1,0 +1,30 @@
+{{extend 'layout.html'}}
+<li>
+<frameset>
+{{i=link[0]}}
+<a href={{=i['Item.URL']}}>  {{=i['Item.Heading']}} </a>
+<br />
+<br />
+{{if i['Item.Multimedia'] is not None: }}
+<iframe width="420" height="315" src="{{=i['Multimedia']}}" frameborder="0" allowfullscreen></iframe>
+{{pass}}
+<br/>
+<br/>
+<a href="/Read_it/default/points/{{=i['Item.id']}}/5" value="Like"> Like
+</a>
+<a href="/Read_it/default/points/{{=i['Item.id']}}/-3" value="DisLike"> DisLike
+</a><br/>
+<hr />
+<hr />
+<h2> Comments! </h2>
+    <br/>
+<ol>
+{{for i in results:}}
+<li>
+<h3> {{=i['Comments.Comment']}} <h3> <br/>
+<h5 align="right"> posted by {{=i['auth_user.first_name']}} on {{=i['Comments.Date']}} </h5>
+<hr />
+</li>
+{{pass}}
+</ol>
+{{=form}}

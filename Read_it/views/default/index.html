@@ -1,0 +1,64 @@
+{{left_sidebar_enabled=right_sidebar_enabled=False}}
+{{extend 'layout.html'}}
+{{if not auth.is_logged_in():}}
+<h1>Reddit Clone</h1>
+<br />
+<hr />
+<h2>Features of this project:</h2>
+<br />
+<ol>
+  <li> Login/Registration for any user <a href={{=URL('user/login')}}> Click here to login</a>. You need to login to comment and like posts.</li>
+    <li>List all news sorted by ratings! <a href={{=URL('listall')}}>Click here </a></li>
+    <ol type="i">
+    {{for i in results:}}
+      <li> <a href="/Read_it/default/list_cat/{{=i['id']}}">{{=i['Name']}}  </a></li>
+   {{pass}}
+   </ol>
+      <li> Post some news. <a href={{=URL('new')}}>Click here </a></li>
+	  <li>Search News!<form method="GET" action={{=URL('search.html')}}> <input type=text name='s' placeholder=Search /> <button class="submit">Submit </button></form></li>
+	    <li>Update/Delete Posts (only for author)</li>
+	      <li>Like/Dislike posts (not posted by you) <a href={{=URL('listall')}}>Click here </a> and Click like/dislike</li>
+	        <li>Comment on posts (not posted by you) and view comments.<a href={{=URL('listall')}}>Click here </a> and Click Comment</li>
+		</ol>
+		<h3> FOR ADMIN ONLY (Authenticated pages) </h3>
+		<ol>
+		  <li> See all Users/Delete Users. <a href={{=URL('listuser')}}>Click here </a></li>
+		    <li> See all Posts/Delete Posts. <a href={{=URL('listall')}}>Click here </a></li>
+		    <li> Add categories. <a href={{=URL('addcat')}}>Click here </a></li>
+		    </ol>
+{{else:}}
+if
+<h1> Your posts: </h1>
+<br />
+<ol>
+{{for i in posts:}}
+<li>
+<frameset>
+<a href={{=i['URL']}}>	{{=i['Heading']}} </a>
+<br />
+<iframe width="420" height="315" src="{{=i['Multimedia']}}" frameborder="0" allowfullscreen></iframe>
+<br />
+<br />
+	<a href="update/{{=i['id']}}" value="Update"> Update </a>
+	<a href="delete/{{=i['id']}}" value="Delete"> Delete </a>
+</frameset>
+</li>
+{{pass}}
+</ol>
+<h2> <a href="{{=URL('new')}}"> ADD POST </a>
+<br/>
+<hr/>
+<br/>
+<ol>
+<h1> Your comments: </h1>
+<br/>
+{{for i in comments:}}
+<li>
+<p> {{=i['Comment']}} </p> <br/>
+<h5 align="right">  on {{=i['Comments.Date']}} </h5>
+<hr />
+</li>
+<br/>
+{{pass}}
+</ol>
+{{pass}}
