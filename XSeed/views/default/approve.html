@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+<h1>Your projects have following applicants </h1>
+<span style='text-decoration:underline text-weight:bold'>
+<hr>
+<ol>
+{{for row in rows:}}
+<li>
+<h3>
+{{=row['StudentName']}} for {{=row['ProjectName']}}
+</h3>
+<h4>
+{{=A('Approve', _href=URL('approve2', args=row['id']))}}
+</h4>
+</li>
+{{pass}}
+</ol>
+

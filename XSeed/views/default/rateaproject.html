@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+<h1>Rate any Project!</h1>
+<span style='text-decoration:underline text-weight:bold'>
+{{=form1}}
+<h1>See any rating!</h1>
+<span style='text-decoration:underline text-weight:bold'>
+{{=form2}}
+{{if avg!=0:}}
+<h4> Average rating is {{=avg}}</h4>
+{{pass}}
+<br>
+<hr>
+

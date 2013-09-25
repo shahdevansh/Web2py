@@ -1,0 +1,16 @@
+{{extend 'layout.html'}}
+<h1>The Archives of {{=arg}} are </h1>
+<span style='text-decoration:underline text-weight:bold'>
+<br>
+<hr>
+<ol>
+{{for row in result:}}
+<li>
+<h3>
+{{=row['Name']}}
+</h3>
+<h4>
+Download : {{=row['ZipFile']}}
+</h4>
+{{pass}}
+

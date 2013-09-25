@@ -1,0 +1,24 @@
+{{extend 'layout.html'}}
+<h3> Your News: </h3>
+{{for i in x:}}
+	{{=i['Heading']}}
+<br />
+<pre>	      {{=i['Content']}}</pre>
+<br />
+{{if i['Multimedia'] is not None: }}
+<embed
+width="420" height="345"
+src={{=i['Multimedia']}}
+type="application/x-shockwave-flash">
+</embed>
+{{pass}}
+{{if auth.user_id == i['User']:}}
+	<a href="update/{{=i['id']}}" value="Update"> Update </a>
+	<a href="delete/{{=i['id']}}" value="Delete"> Delete </a>
+{{else:}}
+	<a href="points/{{=i['id']}}/5" value="Like"> Like
+	</a>
+	<a href="points/{{=i['id']}}/3" value="DisLike"> DisLike
+	</a>
+	{{pass}}
+{{pass}}

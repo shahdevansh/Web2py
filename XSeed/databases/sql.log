@@ -1,0 +1,238 @@
+timestamp: 2013-04-04T16:37:44.240495
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2013-04-04T16:37:44.390910
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2013-04-04T16:37:44.535057
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-04-04T16:37:44.681290
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2013-04-04T16:37:44.836008
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2013-04-04T16:37:44.980983
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2013-04-04T21:16:15.198983
+ALTER TABLE auth_user ADD city CHAR(512);
+timestamp: 2013-04-04T21:16:15.364050
+ALTER TABLE auth_user ADD institute CHAR(512);
+timestamp: 2013-04-04T21:16:15.518806
+ALTER TABLE auth_user ADD image CHAR(512);
+timestamp: 2013-04-04T21:16:15.644058
+ALTER TABLE auth_user ADD phone INTEGER;
+timestamp: 2013-04-04T21:16:15.787459
+ALTER TABLE auth_user ADD address TEXT;
+timestamp: 2013-04-04T21:16:15.921644
+ALTER TABLE auth_user ADD typ CHAR(512);
+timestamp: 2013-04-04T21:16:16.104456
+CREATE TABLE Institutes(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name CHAR(512),
+    City CHAR(512),
+    Strength INTEGER,
+    Citations INTEGER,
+    Specialization CHAR(512),
+    Logo CHAR(512)
+);
+success!
+timestamp: 2013-04-04T21:26:15.964571
+CREATE TABLE StudentPersonal(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name CHAR(512),
+    Age INTEGER,
+    Me CHAR(512),
+    Gender CHAR(512)
+);
+success!
+timestamp: 2013-04-04T21:27:15.350241
+CREATE TABLE FacultyPersonal(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name CHAR(512),
+    Age INTEGER,
+    Me CHAR(512),
+    Gender CHAR(512)
+);
+success!
+timestamp: 2013-04-04T21:27:48.717766
+CREATE TABLE StudentAcademic(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name CHAR(512),
+    CGPA DOUBLE,
+    Interests CHAR(512),
+    Course CHAR(512)
+);
+success!
+timestamp: 2013-04-04T21:27:48.902011
+CREATE TABLE FacultyAcademic(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name CHAR(512),
+    Points INTEGER,
+    Interests CHAR(512)
+);
+success!
+timestamp: 2013-04-04T21:27:49.057777
+CREATE TABLE Relationships(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Student INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    Mentor INTEGER REFERENCES auth_user(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-04-04T21:38:02.721214
+CREATE TABLE Project(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name CHAR(512),
+    Owner CHAR(512),
+    Area CHAR(512),
+    Course CHAR(512),
+    ZipFile CHAR(512)
+);
+success!
+timestamp: 2013-04-04T21:38:02.887987
+CREATE TABLE StuProject(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ProjectName INTEGER REFERENCES Project(id) ON DELETE CASCADE,
+    StudentName INTEGER REFERENCES auth_user(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-04-06T17:46:42.428605
+ALTER TABLE StudentPersonal ADD image CHAR(512);
+timestamp: 2013-04-06T17:46:42.601407
+ALTER TABLE StudentPersonal ADD phone INTEGER;
+timestamp: 2013-04-06T17:46:42.801456
+ALTER TABLE StudentPersonal ADD address TEXT;
+timestamp: 2013-04-12T19:31:43.481854
+CREATE TABLE page(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512) NOT NULL UNIQUE,
+    content TEXT
+);
+success!
+timestamp: 2013-04-12T20:16:43.301509
+CREATE TABLE plugin_rating_master(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tablename CHAR(512),
+    record_id INTEGER,
+    rating DOUBLE,
+    counter INTEGER
+);
+success!
+timestamp: 2013-04-12T20:16:43.460562
+CREATE TABLE plugin_rating_aux(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    master INTEGER REFERENCES plugin_rating_master(id) ON DELETE CASCADE,
+    rating DOUBLE,
+    created_by INTEGER REFERENCES auth_user(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-04-12T20:25:14.250096
+CREATE TABLE item(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512) NOT NULL,
+    file CHAR(512),
+    posted_by INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    posted_on TIMESTAMP
+);
+success!
+timestamp: 2013-04-12T20:27:07.612015
+ALTER TABLE item ADD message TEXT;
+timestamp: 2013-04-16T18:06:34.253455
+ALTER TABLE Project ADD rating INTEGER;
+timestamp: 2013-04-16T18:40:07.555207
+CREATE TABLE Rating(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Project INTEGER REFERENCES Project(id) ON DELETE CASCADE,
+    rating INTEGER
+);
+success!
+timestamp: 2013-04-17T22:57:53.665661
+CREATE TABLE plugin_simple_comments_comment(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tablename CHAR(512),
+    record_id INTEGER,
+    body CHAR(512),
+    created_by INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2013-04-28T20:10:16.366363
+CREATE TABLE Rate(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Project INTEGER REFERENCES Project(id) ON DELETE CASCADE,
+    rating INTEGER
+);
+success!
+timestamp: 2013-04-28T20:51:54.405125
+CREATE TABLE archive(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name INTEGER REFERENCES Project(id) ON DELETE CASCADE,
+    ZipFile CHAR(512)
+);
+success!
+timestamp: 2013-04-28T20:55:52.553611
+CREATE TABLE Project_archive(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    current_record INTEGER REFERENCES Project(id) ON DELETE CASCADE,
+    Name CHAR(512),
+    Owner CHAR(512),
+    Area CHAR(512),
+    Course CHAR(512),
+    ZipFile CHAR(512)
+);
+success!
+timestamp: 2013-04-29T02:29:02.560923
+CREATE TABLE Request(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ProjectName INTEGER REFERENCES Project(id) ON DELETE CASCADE,
+    StudentName INTEGER REFERENCES auth_user(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-04-30T01:43:49.206599
+CREATE TABLE Comment(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Project INTEGER REFERENCES Project(id) ON DELETE CASCADE,
+    Comment TEXT
+);
+success!
+timestamp: 2013-04-30T02:07:13.780688
+ALTER TABLE Project ADD description TEXT;

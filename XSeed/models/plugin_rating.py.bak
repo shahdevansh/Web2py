@@ -1,0 +1,13 @@
+db.define_table('plugin_rating_master',
+   Field('tablename'),
+   Field('record_id','integer'),
+   Field('rating','double'),
+   Field('counter','integer'))
+   
+db.define_table('plugin_rating_aux',
+   Field('master',db.plugin_rating_master),
+   Field('rating','double'),
+   Field('created_by',db.auth_user))
+
+def plugin_rating(tablename,record_id):
+   return LOAD('plugin_rating','rate',vars=dict(tablename=tablename,record_id=record_id,ajax=True))

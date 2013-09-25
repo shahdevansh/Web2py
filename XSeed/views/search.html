@@ -1,0 +1,11 @@
+{{extend 'layout.html'}}
+<h1>The projects on XSeed </h1>
+<span style='text-decoration:underline text-weight:bold'>
+<br>
+{{pass}}
+<hr>
+{{for row in result:}}
+{{=row['Name']}} in {{=row['Course']}}
+Download : {{=row['ZipFile']}}
+<br>
+{{pass}}
