@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+<h3 align="center"> You need to solve </h1>
+<hr/>
+<br/>
+<ol>
+{{x=0}}
+{{for i in questions:}}
+<li>
+{{x=x+1}}
+<a align="center" href="{{=URL('think',vars={'qno':i['id']})}}"> Knot {{=x}} </a>
+<br/>
+<br/>
+</li>
+
+{{pass}}
+</ol>
+<br />

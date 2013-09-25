@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+<ol>
+{{for i in x:}}
+<li>
+{{=i['Question']}}
+<br/>
+<br/>
+<form method ="POST" action="{{=URL('checkans')}}">
+<input type="integer" name="ans"  value="Answer">
+<input type="hidden" name="Qno"  value="{{=i['id']}}">
+<input type="submit">
+</form>
+</li>
+
+{{pass}}
+</ol>
+<br />
