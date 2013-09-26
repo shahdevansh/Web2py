@@ -1,0 +1,4 @@
+
+{{extend 'layout.html'}}
+<h1>This is the query2.html template</h1>
+{{=BEAUTIFY(response._vars)}}

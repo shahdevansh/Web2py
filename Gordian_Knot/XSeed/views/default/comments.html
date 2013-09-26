@@ -1,0 +1,20 @@
+{{extend 'layout.html'}}
+<h1>Comment on a Project!</h1>
+<span style='text-decoration:underline text-weight:bold'>
+{{=form1}}
+<h1>See comments on a Project!</h1>
+<span style='text-decoration:underline text-weight:bold'>
+{{=form2}}
+{{if rows:}}
+<h3> Following are the comments : </h3>
+<ol>
+<li>
+{{for row in rows:}}
+<h4> {{=row['Comment']}} </h4>
+</li>
+{{pass}}
+<ol>
+{{pass}}
+<br>
+<hr>
+

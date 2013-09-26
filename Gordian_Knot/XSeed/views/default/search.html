@@ -1,0 +1,22 @@
+{{extend 'layout.html'}}
+<h1>The projects on XSeed </h1>
+<span style='text-decoration:underline text-weight:bold'>
+<br>
+{{pass}}
+<hr>
+<ol>
+{{for row in result:}}
+<li>
+<h3>
+<a href='seeproject.html/{{=row['Name']}}'> {{=row['Name']}} in {{=row['Course']}}
+</a>
+</h3>
+
+<h4>Download : {{=row['ZipFile']}} </h4>
+<h4>
+{{=A('See Archive', _href=URL('seearchive', args=row['id']))}}
+</h4>
+</li>
+<br>
+</ol>
+{{pass}}

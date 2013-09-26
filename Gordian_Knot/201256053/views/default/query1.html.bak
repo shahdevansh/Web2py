@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h1>Singer with ID 3: </h1>
+<ol>
+{{for row in rows:}}
+<li>{{=row.Songs.Name}}</li>
+{{pass}}
+</ol>
