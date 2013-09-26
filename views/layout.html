@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]><html class="ie ie6 ie-lte9 ie-lte8 ie-lte7 no-js" lang="{{=T.accepted_language or 'en'}}"> <![endif]-->
+<!--[if IE 7]><html class="ie ie7 ie-lte9 ie-lte8 ie-lte7 no-js" lang="{{=T.accepted_language or 'en'}}"> <![endif]-->
+<!--[if IE 8]><html class="ie ie8 ie-lte9 ie-lte8 no-js" lang="{{=T.accepted_language or 'en'}}"> <![endif]-->
+<!--[if IE 9]><html class="ie9 ie-lte9 no-js" lang="{{=T.accepted_language or 'en'}}"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{=T.accepted_language or 'en'}}"> <!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+
+<title> Gordian Knot. </title>
+    <style>
+            #content {
+			            width: 200px;
+													            }
+														        </style>
+<!-- http://dev.w3.org/html5/markup/meta.name.html -->
+<meta name="application-name" content="{{=request.application}}" />
+
+<!-- Speaking of Google, don't forget to set your site up:
+http://google.com/webmasters -->
+<meta name="google-site-verification" content="" />
+
+<!--  Mobile Viewport Fix
+j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag
+device-width: Occupy full width of the screen in its current orientation
+initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
+user-scalable = yes allows the user to zoom in -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references -->
+<link rel="shortcut icon" href="{{=URL('static','favicon.ico')}}" type="image/x-icon">
+<link rel="apple-touch-icon" href="{{=URL('static','favicon.ico')}}">
+
+<!-- All JavaScript at the bottom, except for Modernizr which enables 
+HTML5 elements & feature detects -->
+<script src="{{=URL('static','js/modernizr.custom.js')}}"></script>  
+
+<!-- include stylesheets -->
+{{
+    response.files.append(URL('static','css/skeleton.css'))
+	response.files.append(URL('static','css/web2py.css'))
+	response.files.append(URL('static','css/superfish.css'))
+	response.files.append(URL('static','js/superfish.js'))
+ }}
+
+{{include 'web2py_ajax.html'}}
+
+<script type="text/javascript">
+jQuery(function(){ jQuery('ul.sf-menu').supersubs({minWidth:12,maxWidth:30,extraWidth:3}).superfish(); });
+</script>
+
+{{
+# using sidebars need to know what sidebar you want to use
+    left_sidebar_enabled = globals().get('left_sidebar_enabled',False)
+	right_sidebar_enabled = globals().get('right_sidebar_enabled',False)
+	middle_columns = {0:'sixteen',1:'twelve',2:'eight'}[
+	(left_sidebar_enabled and 1 or 0)+(right_sidebar_enabled and 1 or 0)]
+ }}
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all" />
+<link rel="stylesheet" href="{{=URL('static/css','default.css')}}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{=URL('static/css','fonts.css')}}" type="text/css" media="all" />
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" type="text/css" media="all" />
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="wrapper"><!-- for sticky footer -->
+
+<!--    <div class="topbar">
+<div class="container">    
+<div class="sixteen columns">
+<div id="navbar">{{='auth' in globals() and auth.navbar(separators=(' ',' | ',''))}}</div>
+{{is_mobile=request.user_agent().is_mobile}}
+<div id="menu">{{=MENU(response.menu, _class='mobile-menu' if is_mobile else 'sf-menu',mobile=is_mobile)}}
+</div>
+</div>
+</div>
+</div>--><!-- topbar -->
+<div id="header-wrapper">
+
+<div id="menu" class="container">
+
+<ul>
+
+<li class="current_page_item"><a href="{{=URL('index.html')}}">Homepage</a></li>
+
+<li><a href="{{=URL('about.html')}}">Rules</a></li>
+
+<li><a href="{{=URL('ranklist.html')}}">Ranklist</a></li>
+
+<li><a href="{{=URL('contact.html')}}">Contact</a></li>
+
+</ul>
+
+</div>
+
+<!-- end #menu -->
+
+<div id="header" class="container">
+
+<div id="logo">
+<br/>
+<h1><a href="{{=URL('landing')}}"> Gordian Knot </a></h1>
+
+</div>
+
+<div style="float:right; padding-top: .25em;" class="a2a_kit a2a_default_style">
+<a class="a2a_dd" href="http://www.addtoany.com/share_save">Share this</a></div>
+<div class="flash">{{=response.flash or ''}}</div>
+<!-- AddToAny BEGIN -->
+<script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+<br/>	  {{try:}}{{=auth.navbar(action=URL('default','user'))}}{{except:pass}}		          
+<!-- AddToAny END -->
+</div>
+</div>
+
+<div class="main" id="content">
+ <div class="{{=middle_columns}} columns center">
+{{block center}}
+{{include}}
+{{end}}
+</div>
+<!--    
+{{if right_sidebar_enabled:}}
+<div class="four columns">
+{{block right_sidebar}}
+<h3>Right Sidebar</h3>
+<p></p>
+{{end}}
+</div>    
+{{pass}}
+-->    
+</div><!-- container -->
+</div><!-- main -->
+
+<br>
+<br>
+<div id="copyright" class="container">
+	<p>Copyright (c) 2013 Devansh T Shah.<br/>| Licensed under Creative Commons 3.0 | Powered by web2py</p>
+		<ul class="contact">
+			<li><a href="https://twitter.com/search?q=%23gordianknot&src=hash" class="icon icon-twitter"><span>Twitter</span></a></li>
+			<li><a href="https://www.facebook.com/theboyinatux" class="icon icon-facebook"><span>Facebook</span></a></li>
+			<li><a href="https://plus.google.com/106242931186840401577/posts" class="icon icon-tumblr"><span>Google+</span></a></li>
+			<li><a href="http://theboyinatux.wordpress.com/2013/03/11/how-and-economy-grows-and-why-it-dosent/" class="icon icon-rss"><span>Random</span></a></li>
+		</ul>
+</div>
+</body>
+</html>
+<div class="push"></div>
+</div><!-- wrapper -->
+<!--[if lt IE 7 ]>
+<script src="{{=URL('static','js/dd_belatedpng.js')}}"></script>
+<script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+<![endif]-->
+{{if response.google_analytics_id:}}<script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', '{{=response.google_analytics_id}}']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script> {{pass}}
+</body>
+</html>

@@ -1,0 +1,19 @@
+{{extend 'layout.html'}}
+{{if done==True:}}
+{{for i in z:}}
+<br/>
+<div id="welcome">
+<h3> Well Done! </h3>
+<br/>
+<h5> {{=i['Question']}}</h5>
+<br/>
+<h5> Correct ans is {{=i['Answer']}} </h5>
+<br/>
+<p> Explaination not available yet. </p>
+<br/>
+<br/>
+<a href="{{=URL('landing')}}" class="button"> Try another Question! </a>
+<br/>
+</div>
+{{pass}}
+{{pass}}
