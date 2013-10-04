@@ -1,0 +1,92 @@
+{{extend 'layout.html'}}
+<h1>This is the default/fb1.html template</h1>
+{{=BEAUTIFY(response._vars)}}
+
+
+<div id="fb-root"></div>
+<script>
+
+    // this script is for asynchronous loading
+
+
+     window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '627751360578400',                        // App ID from the app dashboard
+      channelUrl : 'divvy11.pythonanywhere.com', // Channel file for x-domain comms
+      status     : true,                                 // Check Facebook Login status
+      xfbml      : true                                  // Look for social plugins on the page
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+ <!-- this improves function of cross domain-->
+ <script src="//connect.facebook.net/en_US/all.js"></script>
+
+ <!--trying like button-->
+ <div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
+
+
+<!-- POSt on wall a link is required to call this  -->
+<!--
+<script>
+FB.ui(
+  {
+   method: 'feed',
+   name: 'The Facebook SDK for Javascript',
+   caption: 'Bringing Facebook to the desktop and mobile web',
+   description: (
+      'A small JavaScript library that allows you to harness ' +
+      'the power of Facebook, bringing the user\'s identity, ' +
+      'social graph and distribution power to your site.'
+   ),
+   link: 'https://developers.facebook.com/docs/reference/javascript/',
+   picture: 'http://www.fbrell.com/public/f8.jpg'
+  },
+  function(response) {
+    if (response && response.post_id) {
+      alert('Post was published.');
+    } else {
+      alert('Post was not published.');
+    }
+  }
+);
+</script>
+-->
+
+
+<!-- script to send message-->
+<!--
+<script>
+
+FB.ui({
+  method: 'send',
+  link: 'www.google.com',
+});
+</script>
+-->
+
+
+
+<!-- sending message to multiple users -->
+<script>
+FB.ui({
+        method: 'send',
+        to: '100001088214049,1735885318',
+        name: 'Is this google link',
+        link: 'www.google.com',
+    message: "this is the message",
+    	   });
+</script>

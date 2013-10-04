@@ -1,0 +1,46 @@
+<head>
+<meta name="description" content="Example alerts on error success and information with Twitter bootstrap."> 
+<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">  
+<style type="text/css">
+body {
+padding: 50px;
+}
+.hidden {
+  display:none;
+}
+</style>
+
+<script type="text/javascript">
+			function startSlider(i)
+			{
+				if(i==10){
+					hidestuff("flash");
+				}
+				//var img= new Array();
+
+				i++;
+				t=setTimeout('startSlider('+i+')',1000);
+			}
+			
+		</script>
+
+</head>
+<body onload="startSlider(1)">
+{{extend 'layout.html'}}
+<h1>This is the default/contact_list.html template</h1>
+
+<div class="alert alert-success" id="flash">
+  <a class="close" data-dismiss="alert" onclick="hidestuff('flash');">x</a>
+  <strong>Success!</strong> You have successfully imported your contacts.
+</div>
+<script>
+function hidestuff(boxid){
+   document.getElementById(boxid).style.visibility="hidden";
+    document.getElementById('msg').innerHTML="<h3>Your friends on Facebook are :-</h3>";
+}
+</script>
+<div id="msg">
+    Your friends on Facebook are :-
+    </div>
+{{=l}}
+</body>
